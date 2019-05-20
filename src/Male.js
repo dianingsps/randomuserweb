@@ -9,13 +9,16 @@ class Male extends Component{
         }
     
         componentDidMount(){
-            fetch("https://randomuser.me/api/?gender=male")
+            fetch("https://randomuser.me/api/?gender=male&results=3")
             .then(res => res.json())
             .then(parsedJSON => parsedJSON.results.map(data => (
                 {
                         id:`${data.id.name}`, 
                         location:`${data.location.state}`,
-                        thumbnail: `${data.picture.large}`
+                        thumbnail: `${data.picture.large}`,
+                        email:`${data.email}`,
+                        username:`${data.login.username}`,
+                        password:`${data.login.password}`
                 }
             )))
             .then(items => this.setState({
@@ -30,7 +33,7 @@ class Male extends Component{
             <div className="boxWhite">
             {
                 items.length > 0 ? items.map(item => {
-                    const {id, firstName, lastName, location, thumbnail} = item;
+                    const {id, firstName, lastName, location, thumbnail,email, username, password} = item;
                     return (
                         <div key={id} className="bgCircle">
                         <center>
@@ -39,7 +42,10 @@ class Male extends Component{
                         <br />
                         <div className="ctr">
                         {firstName} {lastName}<br />
-                        {location}
+                        {location} <br/>
+                        {email} <br/>
+                        {username} <br/>
+                        {password}
                         </div>
                         </div>
                     );

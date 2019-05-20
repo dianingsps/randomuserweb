@@ -1,5 +1,5 @@
 import React, {Component } from 'react';
-import {Route, NaLink, HashRouter} from "react-router-dom";
+import {Route, NavLink, HashRouter} from "react-router-dom";
 import Home from "./Home";
 import Male from "./Male";
 import Female from "./Female";
@@ -11,9 +11,9 @@ class Main extends Component {
                 <div>
                     <h1 className="title">Fetching Data Api</h1>
                     <ul className="header">
-                        <li><NavLink exact to="/">Home<NavLink></li>
-                        <li><NavLink exact to="/male">Male<NavLink></li>
-                        <li><NavLink exact to="/female">Female<NavLink></li>
+                        <li><NavLink exact to="/">Home</NavLink></li>
+                        <li><NavLink exact to="/male">Male</NavLink></li>
+                        <li><NavLink exact to="/female">Female</NavLink></li>
                     </ul>
                 <div className="content">
                     <Route exact path="/" component={Home}/>
